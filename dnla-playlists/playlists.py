@@ -95,7 +95,7 @@ class Playlist:
         self.path = path
         self.isExtended = extended
         self.isAbsolute = absolute
-        self.name = name + '.m3u'
+        self.name = name if name.endswith('.m3u') else name + '.m3u'
 
     def __str__(self):
         return self.name + ' items: ' + str(len(self.items))
