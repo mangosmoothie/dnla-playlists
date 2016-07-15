@@ -55,14 +55,19 @@ class Playlist:
         if self.isExtended:
             raise NotImplementedError('not ready to write extended m3u')
         else:
-            return item['path'] if self.isAbsolute else item['path'][len(outdir) + 1:]
+            x = 0
+            while x < len(outdir) and x < len(item['path']) \
+                    and outdir[x] == item['path'][x]:
+                x += 1
+            return item['path'][x + 1:] + '\n'
 
 
 def write_playlists(playlists, outdir):
     for p in playlists:
+        print('writing playlist: ' + str(p))
         with open(os.path.join(outdir, p.name), mode='w') as p_out:
             for i in p.items:
-                p_out.write(p.jget_out_str(i, outdir))
+                p_out.write(p.get_out_str(i, outdir))
 
 
 def all_pass(x, predicates):
@@ -101,7 +106,7 @@ def build_top_10_playlists(root_path, predicates, extended, absolute, depth):
         dpath = os.path.join(root_path, d)
         if os.path.isdir(dpath) \
             and re.search('^\d{4}$', d) \
-                and 2100 > int(dir) > 1900:
+                and 2100 > int(d) > 1900:
 
             playlists.append(build_playlist(dpath, predicates,
                                             extended, absolute, 0))
