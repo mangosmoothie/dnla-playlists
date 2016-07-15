@@ -38,6 +38,6 @@ or
     ```
 
 ### Notes
-Right now it only writes regular m3u format. Extended m3u (artist name, song length) is coming soon.
+You can run the default which expects a very particular file structure (top 100 by year) or use the options to build your own playlist.
 
-Right now, it only searches for and writes Billboard 100 by the pre-determined file naming convention and directory structure. Search strings will be added soon.
+You can build your own playlists by searching through files and their metadata for a particular substring or even a regular expression. Searches are recursive through all directories from the root.
