@@ -37,7 +37,31 @@ or
     $ python playlists.py -h
     ```
 
-### Notes
-You can run the default which expects a very particular file structure (top 100 by year) or use the options to build your own playlist.
+    ```
+    Usage: playlists.py [options]
 
-You can build your own playlists by searching through files and their metadata for a particular substring or even a regular expression. Searches are recursive through all directories from the root.
+    Options:
+    -h, --help            show this help message and exit
+    -n NAME, --name=NAME  NAME of playlist
+    -s DIR, --start-at=DIR DIR location to start media file search from (default is current DIR)
+    -e, --extended        use m3u extended format (has additional media metadata)
+    -a, --absolute        use absolute file paths (default is relative paths)
+    -d DEPTH, --depth=DEPTH depth to search, 0 for target dir only (default is fully recursive)
+    -o DIR, --outdir=DIR  DIR location of output file(s) (default is current DIR)
+    -c SUBSTR, --contains=SUBSTR case insensitive match on given string, i.e. "string contains SUBSTR". Checks file names and metadata.
+    -r EXP, --regex=EXP   regex match. checks file name and metadata
+    -f, --force           force execution through warnings
+    ```
+
+
+### Examples
+1. Create a playlist of all songs in and under current directory by Billy Joel (search filenames and metadata - i.e. artist - if available):
+
+    ```
+    $ python playlists.py -c "Billy Joel"
+    ```
+2. Create a playlists of all songs in and under current directory
+
+    ```
+    $ python playlists.py -r ".*"
+    ```
