@@ -1,5 +1,5 @@
 # dnla-playlists
-Dynamically build DNLA playlists
+Dynamically build DNLA playlists in the m3u standard or extended format.
 
 ## Setup
 1. [download and install](https://www.python.org/downloads/) python 3.5 or greater
