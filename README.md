@@ -8,7 +8,7 @@ Dynamically build DNLA playlists
     ```
     $ python --version
     ```
-or
+    or
 
     ```
     $ python3 --version
@@ -17,6 +17,10 @@ or
 
     ```
     $ pip install virtualenv virtualenvwrapper
+    ```
+    or
+    ```
+    $ pip3 install virtualenv virtualenvwrapper
     ```
 
 ## Running the playlist generator
